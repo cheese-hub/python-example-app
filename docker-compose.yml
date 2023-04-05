@@ -1,0 +1,9 @@
+version: '3.9'
+services:
+  python-example-app:
+    container_name: python-example-app
+    image: cheesehub/python-example-app
+    build:
+      context: .
+    ports:
+      - "3000:3000"
