@@ -20,7 +20,7 @@ To build the image:
 $ docker build -t cheesehub/python-example-app .
 ```
 
-To run the image:
+To run a container from the image:
 ```bash
 $ docker run -it --rm cheesehub/python-example-app
 Hello World!
@@ -33,7 +33,7 @@ To build the image:
 $ docker compose build
 ```
 
-To run the image:
+To run a container from the image:
 ```bash
 $ docker compose up
 [+] Running 1/0
@@ -47,3 +47,39 @@ To build and run the image in one step:
 ```bash
 $ docker compose up --build
 ```
+
+
+# Publishing the Docker Image
+## Login to DockerHub
+Create an account on DockerHub if you haven't already.
+
+You can login to this account from the `docker` CLI:
+```bash
+$ docker login
+```
+
+This will prompt you for your DockerHub username and password
+
+## Pushing an Image to DockerHub
+To push the image to DockerHub:
+```bash
+$ docker push cheesehub/python-example-app
+```
+OR
+```bash
+$ docker compose push
+```
+
+This will upload the latest image from your local machine to DockerHub.
+
+## Pulling an Image from DockerHub
+To pull the image from DockerHub:
+```bash
+$ docker pull cheesehub/python-example-app
+```
+OR
+```bash
+$ docker compose pull
+```
+
+This will fetch the latest image from DockerHub and download it to your local machine.
