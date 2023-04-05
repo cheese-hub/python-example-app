@@ -5,5 +5,3 @@ services:
     image: cheesehub/python-example-app
     build:
       context: .
-    ports:
-      - "3000:3000"
