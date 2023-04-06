@@ -1,7 +1,7 @@
 # Jupyter Docker Starter Example
 This is an example Jupyter-based Python application that run is packaged as a Docker image.
 
-By including a small AppSpec JSON file describing the Docker image, the image can run inside of the [CHEESEHub](https://hub.cheesehub.org/) platform.
+By including a small AppSpec JSON file describing how to run it, this same Docker image can run inside of the [CHEESEHub](https://hub.cheesehub.org/) platform.
 
 
 # Prerequisites
