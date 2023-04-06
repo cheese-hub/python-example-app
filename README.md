@@ -1,6 +1,7 @@
 # Jupyter Docker Starter Example
-This is an example Python Docker application.
+This is an example Jupyter-based Python application running in Docker.
 
+The application is packaged as a Docker image that can be run as part of the [CHEESEHub](https://hub.cheesehub.org/) platform.
 
 # Prerequisites
 You will need to install [Docker Desktop](https://docs.docker.com/get-docker/)
