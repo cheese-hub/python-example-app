@@ -26,15 +26,16 @@ Recommended developer workflow:
 
 
 # Getting Started
-Once the application is running, you can navigate to http://localhost:8888 in your browser to see the running application.
-
 You can use JupyterLab to edit and test your code, as well as for keeping and formatting your notes.
 
-On http://localhost:8888, open the `Example.ipynb` notebook to see an example.
+Once the application is running, you can navigate to http://localhost:8888 in your browser and open the `Example.ipynb` notebook to see an example.
 
 You can use Markdown cells to create formatted instructions or use `%run filename.py` to run pure Python functions.
 
 Shift + Enter can be used to evaluate the cell and/or format markdown.
+
+
+<img width="1680" alt="Screen Shot 2023-04-06 at 5 48 29 PM" src="https://user-images.githubusercontent.com/1413653/230507690-d3e1d24f-ab36-4fc3-99a7-76735e8b3911.png">
 
 
 ## Startup
