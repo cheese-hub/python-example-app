@@ -13,7 +13,7 @@ You can use these steps to modify and rebuild this example using Docker
 # Quick Start
 Recommended developer workflow:
 1. `docker compose up -d --build` - start the application
-2. Navigate to http://localhost:8888 to make your edits - iterate on this until yoou are happy with your changes
+2. Navigate to http://localhost:8888 to make your edits - iterate on this until you are happy with your changes
 3. `docker compose down` - shut it down
 4. `docker compose build && docker compose push` - build and publish the image
 5. (Optional) `kubectl apply -f kubernetes.yaml` - run image in Kubernetes cluster (must be published first)
