@@ -38,6 +38,11 @@ Use 'docker scan' to run Snyk tests against images to find vulnerabilities and l
 
 You can then access Jupyter in your browser by navigating to http://localhost:8888
 
+To stop the application, you can run:
+```bash
+$ docker compose down
+```
+
 ## With Docker
 To build the image:
 ```bash
@@ -46,10 +51,15 @@ $ docker build -t cheesehub/python-example-app .
 
 To run a container from the image:
 ```bash
-$ docker run -it -p 8888:8888 cheesehub/python-example-app
+$ docker run -itd -p 8888:8888 -v $(pwd):/home/jovyan --name python-example-app cheesehub/python-example-app
 ```
 
 You can then access Jupyter in your browser by navigating to http://localhost:8888
+
+To stop the application, you can run:
+```bash
+$ docker stop python-example-app
+```
 
 ## Without Docker
 Modify the code and then execute `python ./main.py`:
@@ -58,10 +68,11 @@ $ python ./main.py
 Hello World!
 ```
 
-You can also install Jupyter locally and you can use that to make your edits using that
+You can also [install Jupyter locally](https://docs.jupyter.org/en/latest/install.html) and use that to run a notebook server locally
 
-# Testing + Instructions
-Once the container is running, you can navigate to http://localhost:8888 in your browser to see the running application.
+
+# Testing + Lesson Plan
+Once the application is running, you can navigate to http://localhost:8888 in your browser to see the running application.
 
 ## With Jupyter Notebook
 You can use Jupyter to test your code and keep notes.
@@ -74,10 +85,9 @@ Shift + Enter can be used to evaluate the cell and/or format markdown.
 
 
 # Publishing the Docker Image
-To share this image with others (or to use it in production), the built image must be pushed to a repository.
+To share this image with others (and to use it in production), we must push to an image repository.
 
 We can use DockerHub for this, but any public image repo should work.
-
 
 ## Login to DockerHub
 Create an account on DockerHub if you haven't already.
@@ -114,9 +124,8 @@ $ docker compose pull
 This will fetch the latest image from DockerHub and download it to your local machine.
 
 
-
-# In CHEESEHub
-The last step needed is to create a JSON spec describing how to run this Docker image.
+# Testing with CHEESEHub
+The last step needed is to create a JSON spec telling CHEESEHub how to run this Docker image.
 
 For more technical details about the required format, see: https://github.com/nds-org/ndslabs-specs
 
@@ -131,38 +140,40 @@ At the bottom, you should see a toggle button that says "Show JSON Spec".
 Click on this to see the JSON Spec, which should update automatically as you edit the page:
 ```json
 {
-    "key": "pyexample",
-    "label": "Python Example App",
-    "display": "stack",
-    "access": "external",
-    "image": {
-        "name": "cheesehub/python-example-app",
-        "tags": ["latest"]
-    },
-    "logo": "",
-    "info": "",
-    "depends": [],
-    "config": [],
-    "ports": [
-        {
-            "protocol": "HTTP",
-            "port": "8888",
-            "contextPath": ""
-        }
-    ],
-    "volumeMounts": [],
-    "additionalResources": [],
-    "repositories": [],
-    "command": [],
-    "args": [],
-    "catalog": "user",
-    "tags": []
+  "access": "external",
+  "additionalResources": [],
+  "args": [],
+  "catalog": "user",
+  "command": [],
+  "config": [],
+  "creator": "lambert8illinoisedu",
+  "depends": [],
+  "display": "stack",
+  "image": {
+    "name": "cheesehub/python-example-app",
+    "tags": [
+      "latest"
+    ]
+  },
+  "info": "",
+  "key": "pyexample",
+  "label": "Python Example App",
+  "logo": "",
+  "ports": [
+    {
+      "contextPath": "",
+      "port": 8888,
+      "protocol": "http"
+    }
+  ],
+  "repositories": [],
+  "tags": [],
+  "volumeMounts": []
 }
 ```
 
-Enter details about your application.
 
-You are required to enter the following:
+You are required to at least enter the following:
 * Key - choose a unique alphanumeric string identifier (e.g. `pyexample`)
 * Label - the name to display in the CHEESEHub UI (e.g. `Example Python App`)
 * Docker image name - the repo/org/image name of the Docker image (e.g. `cheesehub/python-example-app`)
@@ -173,3 +184,14 @@ Advanced Features:
 * Environment - if your code requires any environment variables (e.g. `os.getenv('MYSQL_USER'`)
 * Dependencies - if your code requires multiple Docker images to run (e.g. `arpspoof-hacker` depends on `arpspoof-victim`)
 * Volumes - if you want to mount a folder for the user to save files
+
+
+# Bringing it all Together
+Once your application works in CHEESEHub, you can make a PR to our [Application Catalog](https://github.com/cheese-hub/catalog).
+
+Before merging it into our catalog, we will review and test your submission to verify the following:
+* Working Docker image + build process
+* Image has been pushed to a public image repository (e.g. DockerHub)
+* A lesson plan and/or set of instrcutions for the demonstration is included
+
+Once your additions have been merged, the new application will be available to all users of CHEESEHub
