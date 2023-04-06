@@ -103,16 +103,18 @@ We can [use Docker Desktop to run a local Kubernetes cluster](https://docs.docke
 
 **WARNING: make sure to stop your existing Docker container to avoid port conflicts with Kubernetes**
 
-We can use the included `kubernetes.yaml` to test running this application in a local cluster:
+## Startup
+We can use the included `integration/kubernetes.yaml` to test running this application in a local cluster:
 ```bash
-$ kubectl apply -f kubernetes.yaml
+$ kubectl apply -f integration/kubernetes.yaml
 ```
 
 You should then be able to access the application on http://localhost:8888 as before - the image is now running as it will in production.
 
+## Shutdown
 To shut down the application, you can run the following:
 ```bash
-$ kubectl delete -f kubernetes.yaml
+$ kubectl delete -f integration/kubernetes.yaml
 ```
 
 
@@ -130,7 +132,9 @@ Please reach out to your system adminstrator to request this access.
 Navigate to https://hub.cheesehub.org/my-catalog/create to see the Editor.
 At the bottom, you should see a toggle button that says "Show JSON Spec".
 
-Click on this toggle to see the JSON Spec, which should update automatically as you edit the page:
+Click on this toggle to see the JSON Spec, which should update automatically as you edit the page.
+
+We've included a sample `integration/appspec.json` file that runs this example application:
 ```json
 {
   "access": "external",

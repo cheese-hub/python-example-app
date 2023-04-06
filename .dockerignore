@@ -1,9 +1,6 @@
 # Ignore edits to these items when rebuilding Docker image from cache
 Dockerfile*
 docker-compose.yml
-kubernetes.yaml
-appspec.json
-README.md
 .git/
 .ipynb_checkpoints/
 .local/
