@@ -1,7 +1,4 @@
 {
-  "_id": {
-    "$oid": "642f1b81a48f2a8b24b5766c"
-  },
   "access": "external",
   "additionalResources": [],
   "args": [],
