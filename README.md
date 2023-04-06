@@ -13,32 +13,22 @@ You can use these steps to modify and rebuild this example using Docker
 # Quick Start
 Recommended developer workflow:
 1. `docker compose up -d --build` - start the application
-2. Navigate to http://localhost:8888
-3. Make your edits
-4. `docker compose down` - shut it down
-5. `docker compose build && docker compose push` - build and publish the image
-6. (Optional) `kubectl apply -f kubernetes.yaml` - run image in Kubernetes cluster (must be published first)
-7. Navigate to http://localhost:8888 again
-8. Perform final testing
-9. `kubectl delete -f kubernetes.yaml` - shut it down again
-10. Create a new AppSpec describing how to run this Docker image
-11. Make a PR to merge the new AppSpec into the [CHEESEHub Catalog](https://github.com/cheese-hub/catalog)
+2. Navigate to http://localhost:8888 to make your edits
+3. `docker compose down` - shut it down
+4. `docker compose build && docker compose push` - build and publish the image
+5. (Optional) `kubectl apply -f kubernetes.yaml` - run image in Kubernetes cluster (must be published first)
+6. Navigate to http://localhost:8888 again to perform final testing
+7. `kubectl delete -f kubernetes.yaml` - shut it down again
+8. Create a new AppSpec describing how to run this Docker image
+9. Make a PR to add the new AppSpec into the [CHEESEHub Catalog](https://github.com/cheese-hub/catalog)
+
+# Development
+First, you'll need to create a pre-packaged Docker image that will run your application for you.
+
+Feel free to use this repo as a starting point :)
 
 
-# Getting Started
-You can use JupyterLab to edit and test your code, as well as for keeping and formatting your notes.
-
-Once the application is running, you can navigate to http://localhost:8888 in your browser and open the `Example.ipynb` notebook to see an example.
-
-You can use Markdown cells to create formatted instructions or use `%run filename.py` to run pure Python functions.
-
-Shift + Enter can be used to evaluate the cell and/or format markdown.
-
-
-<img width="1680" alt="Screen Shot 2023-04-06 at 5 48 29 PM" src="https://user-images.githubusercontent.com/1413653/230507690-d3e1d24f-ab36-4fc3-99a7-76735e8b3911.png">
-
-
-## Startup
+## 1) Startup
 To build and run the application:
 ```bash
 % docker compose up -d --build
@@ -49,7 +39,18 @@ $ docker build -t cheesehub/python-example-app .
 $ docker run -itd -p 8888:8888 -v $(pwd):/home/jovyan --name python-example-app cheesehub/python-example-app
 ```
 
-## Shutdown
+
+## 2) Making Changes
+Once the application is running, you can navigate to http://localhost:8888 in your browser to use JupyterLab to edit and test your code, as well as for keeping and formatting your notes. Open the `Example.ipynb` notebook to see an example.
+
+You can use Markdown cells to create formatted instructions or use `%run filename.py` to run pure Python functions.
+
+Shift + Enter can be used to evaluate the cell and/or format markdown.
+
+<img width="1680" alt="Screen Shot 2023-04-06 at 5 48 29 PM" src="https://user-images.githubusercontent.com/1413653/230507690-d3e1d24f-ab36-4fc3-99a7-76735e8b3911.png">
+
+
+## 3) Shutdown
 To stop the application, you can run:
 ```bash
 $ docker compose down
@@ -59,7 +60,7 @@ OR
 $ docker stop python-example-app && docker rm -f python-example-app
 ```
 
-# Publishing the Docker Image
+# 4) Publishing the Docker Image
 To share this image with others (and to use it in production), we must push to an image repository.
 
 We can use DockerHub for this, but any public image repo should work.
@@ -101,7 +102,7 @@ $ docker pull cheesehub/python-example-app
 This will fetch the latest image from DockerHub and download it to your local machine.
 
 
-# Optional: Testing in Kubernetes
+# 5-7) Optional: Testing in Kubernetes
 We can [use Docker Desktop to run a local Kubernetes cluster](https://docs.docker.com/desktop/kubernetes/) to test this application.
 
 **WARNING: make sure to stop your existing Docker container to avoid port conflicts with Kubernetes**
@@ -112,7 +113,7 @@ We can use the included `integration/kubernetes.yaml` to test running this appli
 $ kubectl apply -f integration/kubernetes.yaml
 ```
 
-You should then be able to access the application on http://localhost:8888 as before - the image is now running as it will in production.
+You should then be able to access the application on http://localhost:8888 as before - the image is now running as if it were running in production.
 
 ## Shutdown
 To shut down the application, you can run the following:
@@ -121,7 +122,7 @@ $ kubectl delete -f integration/kubernetes.yaml
 ```
 
 
-# Integration with CHEESEHub
+# 8) Integration with CHEESEHub
 The last step needed is to create a JSON spec telling CHEESEHub how to run this Docker image.
 
 For more technical details about the required format, see: https://github.com/nds-org/ndslabs-specs
