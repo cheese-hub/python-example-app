@@ -13,7 +13,7 @@ You can use these steps to modify and rebuild this example using Docker
 # Quick Start
 Recommended developer workflow:
 1. `docker compose up -d --build` - start the application
-2. Navigate to http://localhost:8888 to make your edits
+2. Navigate to http://localhost:8888 to make your edits - iterate on this until yoou are happy with your changes
 3. `docker compose down` - shut it down
 4. `docker compose build && docker compose push` - build and publish the image
 5. (Optional) `kubectl apply -f kubernetes.yaml` - run image in Kubernetes cluster (must be published first)
@@ -22,10 +22,11 @@ Recommended developer workflow:
 8. Create a new AppSpec describing how to run this Docker image
 9. Make a PR to add the new AppSpec into the [CHEESEHub Catalog](https://github.com/cheese-hub/catalog)
 
+
 # Development
 First, you'll need to create a pre-packaged Docker image that will run your application for you.
 
-Feel free to use this repo as a starting point :)
+Feel free to use this repo as a starting point and make modifications as needed :)
 
 
 ## 1) Startup
@@ -192,12 +193,13 @@ Advanced Features:
 * Dependencies - if your code requires multiple Docker images to run (e.g. `arpspoof-hacker` depends on `arpspoof-victim`)
 
 
-# Bringing it all Together
-Once your application works in CHEESEHub, you can make a PR to our [Application Catalog](https://github.com/cheese-hub/catalog).
+# 9) Contributing Back to CHEESEHub
+Once your application is tested and working in CHEESEHub, you can make a PR to our [Application Catalog](https://github.com/cheese-hub/catalog).
 
 Before merging it into our catalog, we will review and test your submission to verify the following:
-* Working Docker image + build process
-* Image has been pushed to a public image repository (e.g. DockerHub)
-* A lesson plan and/or set of instrcutions for the demonstration is included
+* Working Docker image + build process in place - see steps 1-3 above
+* Image has been built and pushed to a public image repository (e.g. DockerHub) - see step 4 above
+
+We may need to work with you to create a lesson plan or set of instructions to demonstrate the security concept or vulnerability highlighted by your code.
 
 Once your additions have been merged, the new application will be available to all users of CHEESEHub! :tada: :confetti_ball:
