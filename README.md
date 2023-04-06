@@ -182,7 +182,7 @@ You are required to at least enter the following:
 * Docker tags - the version tag to use for Docker (e.g. `latest`)
 
 Advanced Features:
-* Volumes - if you want to mount a folder for the user to save files (e.g. `/home/jovyan/work`)
+* Volumes - if you want to mount a folder for the user to save files (e.g. `/home/jovyan/work` is shared with your other apps)
 * Ports - if your application uses a particular port (e.g. Jupyter uses `8888`)
 * Environment - if your code requires any environment variables (e.g. `os.getenv('MYSQL_USER'`)
 * Dependencies - if your code requires multiple Docker images to run (e.g. `arpspoof-hacker` depends on `arpspoof-victim`)
