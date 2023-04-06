@@ -8,6 +8,20 @@ You will need to install [Docker Desktop](https://docs.docker.com/get-docker/)
 You can use these steps to modify and rebuild this example using Docker
 
 
+# Quick Start
+Recommended developer workflow:
+1. `docker compose up -d --build` - start the application
+2. Navigate to http://localhost:8888
+3. Make your edits
+4. `docker compose down` - shut it down again
+5. `docker compose build && docker compose push` - build and publish the image
+6. (Optional) `kubectl apply -f kubernetes.yaml` - start application in Kubernetes cluster
+7. Navigate to http://localhost:8888
+8. Perform final testing
+9. Create a new AppSpec describing how to run this Docker image
+10. Merge the new AppSpec into the [CHEESEHub Catalog](https://github.com/cheese-hub/catalog)
+
+
 # Getting Started
 Once the application is running, you can navigate to http://localhost:8888 in your browser to see the running application.
 
