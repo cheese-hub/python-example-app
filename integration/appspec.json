@@ -27,5 +27,10 @@
   ],
   "repositories": [],
   "tags": [],
-  "volumeMounts": []
+  "volumeMounts": [
+    {
+      "mountPath": "/home/jovyan/work",
+      "defaultPath": "work"
+    }
+  ]
 }
