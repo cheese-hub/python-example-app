@@ -110,6 +110,10 @@ $ kubectl apply -f kubernetes.yaml
 
 You should then be able to access the application on http://localhost:8888 as before - the image is now running as it will in production.
 
+To shut down the application, you can run the following:
+```bash
+$ kubectl delete -f kubernetes.yaml
+```
 
 
 # Integration with CHEESEHub
