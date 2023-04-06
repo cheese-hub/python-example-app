@@ -1,0 +1,6 @@
+# Internal directories created by Jupyter
+.ipynb_checkpoints/
+.local/
+.jupyter/
+.ipython/
+
